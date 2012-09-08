@@ -1,0 +1,49 @@
+#main{
+	margin:auto;
+	width:700px;
+	margin-top:100px;
+	height:460px;
+	line-height:25px;
+	background:white;
+	box-shadow: 2px 2px 2px #888888;
+}
+body{
+	background:#F2F2F2;
+}
+
+h1 {
+	margin-left: 230px;
+	padding-top:20px;
+	margin-bottom:30px;
+	text-shadow: 2px 2px #ff0000;
+	text-shadow:#003399 1px;
+}
+form li {
+	list-style: none;
+	margin-bottom: 5px;
+}
+
+form ul li label{
+	float: left;
+	clear: left;
+	width: 200px;
+	text-align: right;
+	margin-right: 10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+form ul li input, select,span {
+	float: left;
+	margin-bottom: 10px;
+}
+
+[type="submit"] {
+	clear: left;
+	margin: 20px 0 0 230px;
+	font-size:18px
+}
+
+
+
+

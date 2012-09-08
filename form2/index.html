@@ -1,0 +1,112 @@
+<!DOCTYPE html><head>
+<title>Payment Form</title>
+<link rel='stylesheet' href="CSS/style.css" type='text/css' />
+<script src="JS/validation.js"></script>
+<script>
+function formValidation()
+{	
+	//variable declaration
+	var root = document.registration.elements;
+	var elementNumber;
+	toGetCheckbox_list(root);//to get the list of check box items having same name to validate checkboxes
+	toGetRadio_list(root);//to get the list of radio box items having same name to validate radio boxes
+
+	//main function starts 	
+	for(elementNumber = 0;elementNumber<document.registration.elements.length;elementNumber++){
+		
+			if(root[elementNumber].type == "text"){
+				if(validation_for_textbox(root[elementNumber])){
+				}else{
+					break;
+				}
+			}
+			if(root[elementNumber].type == "radio"){
+				
+				if(validation_for_radio_buttons(root[elementNumber])){
+				}else{
+					break;
+				}
+			}
+			if(root[elementNumber].type == "checkbox"){
+				
+				if(validation_for_checkboxes(root[elementNumber])){
+				}else{
+					break;
+				}
+			}
+			if(root[elementNumber].type =="select-one"){
+				
+				if(validation_for_select_boxes(root[elementNumber])){
+				}else{
+					break;
+				}
+			}
+			
+		}
+	return false;
+}
+</script>
+</head>
+
+<div id="main">
+	<h1>Payment Form</h1>
+	
+	<form name="registration" onSubmit="return formValidation()">
+	<ul>
+	<!-- text boxes-->
+	
+	<li><label>UserName:</label></li>
+	<li><input type="text"  name="username"  size="50" /></li>
+	<li><label>Name on the credit card:</label></li>
+	<li><input type="text"  name="Name on the credit card"  size="50" /></li>
+	<li><label>Number of the credit card:</label></li>
+	<li><input type="text"  name="Number of the credit card" size="50" /></li>
+		
+	<!--radio buttons having type has a group name-->
+	<li><label >Type of the credit card:</label></li>
+	<li><input type="radio" name="type"   value="type of the card"><span><img src="images/mastercard.gif"/></span></li>
+	<li><input type="radio" name="type"  value="type of the card" /><span><img src="images/visa.gif"</span></li>
+	
+	
+	
+	<!--check boxes having Qualification has a group name-->
+	<li><label >Items Purchased:</label></li>
+	<li><input type="checkbox" name="purchased items"   value="Mobile"><span>Mobile</span></li>
+	<li><input type="checkbox" name="purchased items"   value="BCA"><span>Refrigerator</span></li>
+	<li><input type="checkbox" name="purchased items"   value="BCA"><span>Refrigerator</span></li>
+	
+	<!--Select boxes-->
+	<li><label>Expiration Date:</label></li>
+	<li>
+				<select name="Day" >
+				<option selected="" value="Default">day</option>
+				<option >1</option>
+				<option >2</option>
+				<option >3</option>
+				
+				</select>
+				<select  name="Month">
+				<option selected="" value="Default">SELECT-MONTH</option>
+				<option >jan</option>
+				<option >feb</option>
+				<option >march</option>
+				
+				</select>
+				<select  name="Year">
+				<option selected="" value="Default">SELECT-YEAR</option>
+				<option >2000</option>
+				<option >2012</option>
+				<option>2013</option>
+				
+				</select>
+	</li>
+	
+	
+	
+	
+	<li><input type="submit" name="submit" value="Submit" /></li>
+	</ul>
+	</form>
+</div>
+</body>
+</html>

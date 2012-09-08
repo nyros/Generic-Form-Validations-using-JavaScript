@@ -1,0 +1,132 @@
+<!DOCTYPE html><head>
+<title>Registration Form</title>
+<link rel='stylesheet' href="CSS/style.css" type='text/css' />
+<script src="JS/validation.js"></script>
+<script>
+function formValidation()
+{	
+	//variable declaration
+	var root = document.registration.elements;
+	var elementNumber;
+	toGetCheckbox_list(root);//to get the list of check box items having same name to validate checkboxes
+	toGetRadio_list(root);//to get the list of radio box items having same name to validate radio boxes
+
+	//main function starts 	
+	for(elementNumber = 0;elementNumber<document.registration.elements.length;elementNumber++){
+		
+			if(root[elementNumber].type == "text"){
+				if(validation_for_textbox(root[elementNumber])){
+				}else{
+					break;
+				}
+			}
+			if(root[elementNumber].type == "radio"){
+				
+				if(validation_for_radio_buttons(root[elementNumber])){
+				}else{
+					break;
+				}
+			}
+			if(root[elementNumber].type == "checkbox"){
+				
+				if(validation_for_checkboxes(root[elementNumber])){
+				}else{
+					break;
+				}
+			}
+			if(root[elementNumber].type =="select-one"){
+				
+				if(validation_for_select_boxes(root[elementNumber])){
+				}else{
+					break;
+				}
+			}
+			
+		}
+	return false;
+}
+</script>
+</head>
+
+<div id="main">
+	<h1>Registration Form</h1>
+	
+	<form name="registration" onSubmit="return formValidation()">
+	<ul>
+	<!-- text boxes-->
+	
+	<li><label>UserName:</label></li>
+	<li><input type="text"  name="username"  size="50" /></li>
+	<li><label>FirstName:</label></li>
+	<li><input type="text"  name="Firstname" size="50" /></li>
+	<li><label>LastName:</label></li>
+	<li><input type="text"  name="Lastname" size="50" /></li>
+	<li><label>Email:</label></li>
+	<li><input type="text"  name="email" size="50" /></li>
+	
+<!--	radio buttons having gender as a group name-->
+	<li><label >Sex:</label></li>
+	<li><input type="radio" name="Gender"   value="Gender"><span>Male</span></li>
+	<li><input type="radio" name="Gender"  value="Gender" /><span>Female</span></li>
+	
+	<!--radio buttons having hobbies as a group name-->
+	<li><label >Hobbies:</label></li>
+	<li><input type="radio" name="Hobbies"   value="Hobbies"><span>Painting</span></li>
+	<li><input type="radio" name="Hobbies"   value="Hobbies"><span>Singing</span></li>
+	<li><input type="radio" name="Hobbies"   value="Hobbies"><span>Dancing</span></li>
+	
+	<!--check boxes having Qualification as a group name-->
+	<li><label >Qualification:</label></li>
+	<li><input type="checkbox" name="Qualification"   value="MCA"><span>MCA</span></li>
+	<li><input type="checkbox" name="Qualification"   value="BCA"><span>BCA</span></li>
+	
+	<!--check box having no a group name-->
+	<li><label >Nationality:</label></li>
+	<li><input type="checkbox"    value="Nationality"><span>Indian</span></li>
+	
+	<!--Select boxes-->
+	<li><label>Date of birth:</label></li>
+	<li>
+				<select name="Day" >
+				<option selected="" value="Default">day</option>
+				<option >1</option>
+				<option >2</option>
+				<option >3</option>
+				
+				</select>
+				<select  name="Month">
+				<option selected="" value="Default">SELECT-MONTH</option>
+				<option >jan</option>
+				<option >feb</option>
+				<option >march</option>
+				
+				</select>
+				<select  name="Year">
+				<option selected="" value="Default">SELECT-YEAR</option>
+				<option >2000</option>
+				<option >2012</option>
+				<option>2013</option>
+				
+				</select>
+	</li>
+	
+	<!--Another Select box-->
+	<li><label>COUNTRY:</label></li>
+	<li>	
+				</select>
+				<select  name="Country">
+				<option selected="" value="Default">SELECT-COUNTRY</option>
+				<option >INDIA</option>
+				<option >US</option>
+				<option>U.S.A</option>
+				
+				</select>
+	</li>
+	
+	
+	<li><input type="submit" name="submit" value="Submit" /></li>
+	</ul>
+	</form>
+</div>
+</body>
+</html>
